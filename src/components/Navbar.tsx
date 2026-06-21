@@ -14,9 +14,7 @@ export default function Navbar({ currentSection, onNavigate }: NavbarProps) {
   const navItems = [
     { id: 'home', label: 'Eternity' },
     { id: 'exhibits', label: 'Vaults' },
-    { id: 'discoveries', label: 'Discoveries' },
-    { id: 'lab', label: 'Acoustics' },
-    { id: 'expeditions', label: 'Journeys' }
+    { id: 'discoveries', label: 'Discoveries' }
   ];
 
   const handleMobileNav = (id: string) => {
