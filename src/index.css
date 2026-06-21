@@ -78,3 +78,8 @@ html {
   overflow-x: hidden;
 }
 
+/* Shimmer keyframe for image skeleton loaders */
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
