@@ -94,7 +94,7 @@ const SpeciesModal = memo(function SpeciesModal({
   }, [onClose]);
 
   return createPortal(
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[9999] overflow-y-auto">
       {/* Backdrop */}
       <motion.div
         key="modal-backdrop"
@@ -106,124 +106,127 @@ const SpeciesModal = memo(function SpeciesModal({
         className="fixed inset-0 bg-black/85 backdrop-blur-md"
       />
 
-      {/* Modal box — elevated above backdrop */}
-      <motion.div
-        key="modal-box"
-        initial={{ opacity: 0, scale: 0.96, y: 12 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.96, y: 12 }}
-        transition={{ type: 'spring', damping: 30, stiffness: 240, mass: 0.8 }}
-        className="relative w-full max-w-3xl rounded-3xl overflow-hidden border border-white/10 bg-zinc-950 z-[210] shadow-2xl my-auto grid grid-cols-1 md:grid-cols-2"
-        style={{ willChange: 'transform, opacity' }}
-      >
-        {/* Left: Image */}
-        <div className="p-6 md:p-8 md:pr-4 flex items-center justify-center">
-          <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 shadow-inner">
-            {!imgLoaded && (
-              <div className="absolute inset-0 bg-zinc-800 animate-pulse">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_1.4s_infinite]" />
-              </div>
-            )}
-            <img
-              key={species.id}
-              src={species.image}
-              alt={species.name}
-              loading="eager"
-              decoding="sync"
-              fetchPriority="high"
-              onLoad={() => setImgLoaded(true)}
-              className={`w-full h-full object-cover select-none pointer-events-none rounded-2xl transition-opacity duration-300 ${
-                imgLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none rounded-2xl" />
-          </div>
-        </div>
-
-        {/* Right: Info */}
-        <div className="relative p-6 sm:p-8 md:pl-4 flex flex-col gap-5 justify-between">
-          {/* Close button */}
-          <div className="absolute top-5 right-5 z-50">
-            <button
-              onClick={onClose}
-              className="w-8 h-8 rounded-full flex items-center justify-center liquid-glass text-white/70 hover:text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all font-mono text-[12px] cursor-pointer"
-              aria-label="Close modal"
-            >
-              ✕
-            </button>
+      {/* Centering wrapper that allows vertical scrolling if content overflows */}
+      <div className="flex min-h-full items-center justify-center p-4 sm:p-6 md:p-8">
+        {/* Modal box — elevated above backdrop */}
+        <motion.div
+          key="modal-box"
+          initial={{ opacity: 0, scale: 0.96, y: 12 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.96, y: 12 }}
+          transition={{ type: 'spring', damping: 30, stiffness: 240, mass: 0.8 }}
+          className="relative w-full max-w-3xl rounded-3xl overflow-hidden border border-white/10 bg-zinc-950 z-[210] shadow-2xl grid grid-cols-1 md:grid-cols-2 my-auto"
+          style={{ willChange: 'transform, opacity' }}
+        >
+          {/* Left: Image */}
+          <div className="p-6 md:p-8 md:pr-4 flex items-center justify-center">
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 shadow-inner">
+              {!imgLoaded && (
+                <div className="absolute inset-0 bg-zinc-800 animate-pulse">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_1.4s_infinite]" />
+                </div>
+              )}
+              <img
+                key={species.id}
+                src={species.image}
+                alt={species.name}
+                loading="eager"
+                decoding="sync"
+                fetchPriority="high"
+                onLoad={() => setImgLoaded(true)}
+                className={`w-full h-full object-cover select-none pointer-events-none rounded-2xl transition-opacity duration-300 ${
+                  imgLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none rounded-2xl" />
+            </div>
           </div>
 
-          <div className="flex flex-col gap-5">
-            {/* Header */}
-            <div>
-              <span className="font-mono text-[8px] uppercase text-white/40 tracking-[0.2em] block mb-0.5">
-                GENETIC LEDGER SCAN
-              </span>
-              <h3 className="font-display italic text-3xl sm:text-4xl text-white font-normal tracking-tight">
-                {species.name}
-              </h3>
-              <p className="font-mono text-[10px] text-white/50 italic mt-0.5">
-                {species.scientificName}
-              </p>
-            </div>
-
-            {/* Description */}
-            <div className="border-t border-white/5 pt-4">
-              <p className="font-sans text-xs sm:text-sm text-white/80 leading-relaxed font-light">
-                {species.description}
-              </p>
-            </div>
-
-            {/* Specs Grid */}
-            <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 grid grid-cols-2 gap-4">
-              <div>
-                <span className="font-mono text-[8px] text-white/40 block uppercase tracking-wider">Chronology</span>
-                <span className="font-sans text-xs text-white/90 font-light mt-0.5 block">{species.period}</span>
-              </div>
-              <div>
-                <span className="font-mono text-[8px] text-white/40 block uppercase tracking-wider">Diet Style</span>
-                <span className="font-sans text-xs text-white/90 font-light mt-0.5 flex items-center gap-1.5">
-                  <span className={`w-1.5 h-1.5 rounded-full ${species.diet === 'Carnivore' ? 'bg-red-500' : 'bg-green-500'}`} />
-                  {species.diet}
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[8px] text-white/40 block uppercase tracking-wider">Length x Height</span>
-                <span className="font-sans text-xs text-white/90 font-light mt-0.5 block">{species.sizeLength} × {species.sizeHeight}</span>
-              </div>
-              <div>
-                <span className="font-mono text-[8px] text-white/40 block uppercase tracking-wider">Estimated Mass</span>
-                <span className="font-sans text-xs text-white/90 font-light mt-0.5 block">{species.weight}</span>
-              </div>
-            </div>
-
-            {/* Biometrics */}
-            <div className="border-t border-white/5 pt-4">
-              <span className="font-mono text-[8px] uppercase tracking-widest text-white/40 block mb-2">
-                Key Biometrics
-              </span>
-              <ul className="space-y-1.5">
-                {species.biometrics.slice(0, 2).map((biometric, bIdx) => (
-                  <li key={bIdx} className="flex gap-2 items-center text-xs text-white/85 font-sans">
-                    <span className="text-white/30 font-mono text-[10px]">•</span>
-                    <span className="font-light">{biometric}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Close action */}
-            <div className="flex justify-center pt-3 border-t border-white/5">
+          {/* Right: Info */}
+          <div className="relative p-6 sm:p-8 md:pl-4 flex flex-col gap-5 justify-between">
+            {/* Close button */}
+            <div className="absolute top-5 right-5 z-50">
               <button
                 onClick={onClose}
-                className="px-6 py-2.5 rounded-full liquid-glass text-white/90 hover:text-white hover:bg-white/10 border border-white/10 hover:border-white/20 font-mono text-[9px] uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-md active:scale-95"
+                className="w-8 h-8 rounded-full flex items-center justify-center liquid-glass text-white/70 hover:text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all font-mono text-[12px] cursor-pointer"
+                aria-label="Close modal"
               >
-                Close Ledger
+                ✕
               </button>
             </div>
+
+            <div className="flex flex-col gap-5">
+              {/* Header */}
+              <div>
+                <span className="font-mono text-[8px] uppercase text-white/40 tracking-[0.2em] block mb-0.5">
+                  GENETIC LEDGER SCAN
+                </span>
+                <h3 className="font-display italic text-3xl sm:text-4xl text-white font-normal tracking-tight">
+                  {species.name}
+                </h3>
+                <p className="font-mono text-[10px] text-white/50 italic mt-0.5">
+                  {species.scientificName}
+                </p>
+              </div>
+
+              {/* Description */}
+              <div className="border-t border-white/5 pt-4">
+                <p className="font-sans text-xs sm:text-sm text-white/80 leading-relaxed font-light">
+                  {species.description}
+                </p>
+              </div>
+
+              {/* Specs Grid */}
+              <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 grid grid-cols-2 gap-4">
+                <div>
+                  <span className="font-mono text-[8px] text-white/40 block uppercase tracking-wider">Chronology</span>
+                  <span className="font-sans text-xs text-white/90 font-light mt-0.5 block">{species.period}</span>
+                </div>
+                <div>
+                  <span className="font-mono text-[8px] text-white/40 block uppercase tracking-wider">Diet Style</span>
+                  <span className="font-sans text-xs text-white/90 font-light mt-0.5 flex items-center gap-1.5">
+                    <span className={`w-1.5 h-1.5 rounded-full ${species.diet === 'Carnivore' ? 'bg-red-500' : 'bg-green-500'}`} />
+                    {species.diet}
+                  </span>
+                </div>
+                <div>
+                  <span className="font-mono text-[8px] text-white/40 block uppercase tracking-wider">Length x Height</span>
+                  <span className="font-sans text-xs text-white/90 font-light mt-0.5 block">{species.sizeLength} × {species.sizeHeight}</span>
+                </div>
+                <div>
+                  <span className="font-mono text-[8px] text-white/40 block uppercase tracking-wider">Estimated Mass</span>
+                  <span className="font-sans text-xs text-white/90 font-light mt-0.5 block">{species.weight}</span>
+                </div>
+              </div>
+
+              {/* Biometrics */}
+              <div className="border-t border-white/5 pt-4">
+                <span className="font-mono text-[8px] uppercase tracking-widest text-white/40 block mb-2">
+                  Key Biometrics
+                </span>
+                <ul className="space-y-1.5">
+                  {species.biometrics.slice(0, 2).map((biometric, bIdx) => (
+                    <li key={bIdx} className="flex gap-2 items-center text-xs text-white/85 font-sans">
+                      <span className="text-white/30 font-mono text-[10px]">•</span>
+                      <span className="font-light">{biometric}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Close action */}
+              <div className="flex justify-center pt-3 border-t border-white/5">
+                <button
+                  onClick={onClose}
+                  className="px-6 py-2.5 rounded-full liquid-glass text-white/90 hover:text-white hover:bg-white/10 border border-white/10 hover:border-white/20 font-mono text-[9px] uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-md active:scale-95"
+                >
+                  Close Ledger
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>,
     document.body!
   );
