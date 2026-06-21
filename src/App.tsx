@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SpeciesArchive from './components/SpeciesArchive';
+import Discoveries from './components/Discoveries';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -12,8 +13,7 @@ export default function App() {
     if (sectionId === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // Smoothly navigate to the Species LEDGER Vault matching exhibits, acoustics, or journeys
-      const el = document.getElementById('exhibits');
+      const el = document.getElementById(sectionId);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
@@ -35,6 +35,9 @@ export default function App() {
 
         {/* Dynamic Liquid Glass Species Archive Section */}
         <SpeciesArchive />
+
+        {/* Vertical Infinite Marquee Discoveries Section */}
+        <Discoveries />
       </main>
 
       {/* Minimal Liquid Glass Centered Footer */}

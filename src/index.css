@@ -83,3 +83,27 @@ html {
   0%   { transform: translateX(-100%); }
   100% { transform: translateX(200%); }
 }
+
+/* Vertical marquee animations */
+@keyframes marquee-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes marquee-down {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.animate-marquee-up {
+  animation: marquee-up 45s linear infinite;
+}
+
+.animate-marquee-down {
+  animation: marquee-down 45s linear infinite;
+}
+
+.hover-pause:hover {
+  animation-play-state: paused;
+}
+

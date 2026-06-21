@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import { Compass, Eye } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -63,25 +63,32 @@ and the giants that once ruled our planet.
           </motion.p>
         </div>
 
-        {/* Animated Liquid Glass Scroll Down Indicator */}
+        {/* Animated Scroll Down Indicator (No Container) */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="z-20 mt-4"
+          className="z-20 mt-12"
         >
           <button
             onClick={() => {
               const el = document.getElementById('exhibits');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="px-6 py-3 rounded-full liquid-glass text-white/80 hover:text-white hover:bg-white/5 font-mono text-[10px] uppercase tracking-[0.25em] transition-all duration-300 flex items-center gap-2.5 active:scale-95 cursor-pointer"
+            className="flex flex-col items-center gap-3 text-white/60 hover:text-white font-mono text-[10px] uppercase tracking-[0.35em] transition-all duration-300 active:scale-95 cursor-pointer bg-transparent border-none p-0 focus:outline-none select-none"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-            </span>
-            Explore Vault
+            <span>SCROLL</span>
+            <motion.span
+              animate={{ y: [0, 5, 0] }}
+              transition={{
+                repeat: Infinity,
+                duration: 1.6,
+                ease: 'easeInOut',
+              }}
+              className="inline-block"
+            >
+              <ArrowDown className="w-4 h-4" />
+            </motion.span>
           </button>
         </motion.div>
 
