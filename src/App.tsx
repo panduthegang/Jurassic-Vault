@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SpeciesArchive from './components/SpeciesArchive';
@@ -7,6 +7,33 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [currentSection, setCurrentSection] = useState<string>('home');
+
+  useEffect(() => {
+    const sectionIds = ['home', 'exhibits', 'discoveries'];
+    
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      const intersectingEntries = entries.filter(entry => entry.isIntersecting);
+      if (intersectingEntries.length > 0) {
+        // Sort by intersection ratio descending to get the most visible section
+        intersectingEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        setCurrentSection(intersectingEntries[0].target.id);
+      }
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      rootMargin: '-30% 0px -40% 0px',
+      threshold: [0.1, 0.25, 0.5]
+    });
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const handleNavigate = (sectionId: string) => {
     setCurrentSection(sectionId);

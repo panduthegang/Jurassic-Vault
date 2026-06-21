@@ -7,7 +7,7 @@ export default function Hero() {
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-center items-center text-white overflow-hidden pt-32 pb-16 px-4 sm:px-8">
+    <section id="home" className="relative min-h-screen w-full flex flex-col justify-center items-center text-white overflow-hidden pt-32 pb-16 px-4 sm:px-8">
       {/* Immersive Videosphere with Maximum Visibility & Minimal Framing Overlay */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none select-none">
         {/* Solid fallback */}
