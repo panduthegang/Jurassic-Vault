@@ -101,4 +101,8 @@ npm run build
 
 Distributed under the MIT License. See [LICENSE](https://github.com/panduthegang/Jurassic-Vault/blob/main/LICENSE) for more details.
 
-Copyright (c) 2026 [panduthegang](https://github.com/panduthegang)
+---
+
+<p align="center">
+  Crafted with 🖤 by <a href="https://github.com/panduthegang">Harsh Rathod</a> &bull; <a href="https://harshrathod-portfolio.vercel.app/">Portfolio</a>
+</p>
