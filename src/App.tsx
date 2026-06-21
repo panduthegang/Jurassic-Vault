@@ -56,7 +56,7 @@ export default function App() {
       />
 
       {/* Main Container */}
-      <main className="relative z-10 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.9)]">
+      <main className="relative z-10 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-x-hidden">
         {/* Minimal High-Impact Pure Glassmorphism Hero Section */}
         <Hero />
 

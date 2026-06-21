@@ -296,7 +296,7 @@ export default function SpeciesArchive() {
   }, []);
 
   return (
-    <section id="exhibits" className="w-full bg-black py-24 px-4 sm:px-8 border-t border-white/5 relative z-10">
+    <section id="exhibits" className="w-full bg-black py-24 px-4 sm:px-8 border-t border-white/5 relative z-10 overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-white/[0.02] rounded-full filter blur-[120px] pointer-events-none" />
 
