@@ -33,7 +33,7 @@ export const DINOSAURS: Dinosaur[] = [
       'Maximum Running Speed: 27 km/h'
     ],
     callSignature: 'Deep subterranean infrasonic rattle (8-14 Hz)',
-    image: 'https://res.cloudinary.com/dkev7ein3/image/upload/v1781967095/Tyrannosaurus-Rex_z9ncir.png'
+    image: 'https://res.cloudinary.com/dkev7ein3/image/upload/v1782018087/Tyrannosaurus-Rex_x24riv.png'
   },
   {
     id: 'brachiosaurus',
@@ -53,7 +53,7 @@ export const DINOSAURS: Dinosaur[] = [
       'Vertebrae Pocket Scale: 64% pneumatic volume'
     ],
     callSignature: 'Resonant low-register wind column trumpet',
-    image: 'https://images.unsplash.com/photo-1570473541596-2cf81a07094a?auto=format&fit=crop&w=800&q=80'
+    image: 'https://res.cloudinary.com/dkev7ein3/image/upload/v1782018085/Brachiosaurus_y7tz5k.png'
   },
   {
     id: 'triceratops',
@@ -73,7 +73,7 @@ export const DINOSAURS: Dinosaur[] = [
       'Occipital Condyle Swivel Range: 310°'
     ],
     callSignature: 'Sub-audible warning guttural hiss and low growel',
-    image: 'https://images.unsplash.com/photo-1606856518555-9a8c190839e5?auto=format&fit=crop&w=800&q=80'
+    image: 'https://res.cloudinary.com/dkev7ein3/image/upload/v1782018088/Triceratops_tj9dpp.png'
   },
   {
     id: 'velociraptor',
@@ -93,7 +93,7 @@ export const DINOSAURS: Dinosaur[] = [
       'Inter-species Vocal Matrix: 18 discrete phrases'
     ],
     callSignature: 'High pitch bird-of-prey warning click and whistle',
-    image: 'https://images.unsplash.com/photo-1568283096533-078a24930eb8?auto=format&fit=crop&w=800&q=80'
+    image: 'https://res.cloudinary.com/dkev7ein3/image/upload/v1782018091/Velociraptor_ejhbak.png'
   },
   {
     id: 'spinosaurus',
@@ -113,7 +113,7 @@ export const DINOSAURS: Dinosaur[] = [
       'Calculated Swimming Speed: 12 km/h'
     ],
     callSignature: 'Infrasonic bass vibration with aquatic splashing',
-    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80'
+    image: 'https://res.cloudinary.com/dkev7ein3/image/upload/v1782018088/Spinosaurus_xawvk7.png'
   },
   {
     id: 'stegosaurus',
@@ -133,7 +133,7 @@ export const DINOSAURS: Dinosaur[] = [
       'Maximum Defensive Swing Arc: 120°'
     ],
     callSignature: 'Low-intensity grinding tail-drag rhythm',
-    image: 'https://images.unsplash.com/photo-1525857597365-5f6dbec2caa3?auto=format&fit=crop&w=800&q=80'
+    image: 'https://res.cloudinary.com/dkev7ein3/image/upload/v1782018089/Stegosaurus_pj6skz.png'
   },
   {
     id: 'ankylosaurus',
@@ -153,7 +153,7 @@ export const DINOSAURS: Dinosaur[] = [
       'Center of Gravity Index: extremely low'
     ],
     callSignature: 'Heavy crushing sub-audible mechanical slide',
-    image: 'https://images.unsplash.com/photo-1504370805625-d32c54b16100?auto=format&fit=crop&w=800&q=80'
+    image: 'https://res.cloudinary.com/dkev7ein3/image/upload/v1782018084/Ankylosaurus_zozuo8.png'
   },
   {
     id: 'pteranodon',
@@ -173,7 +173,7 @@ export const DINOSAURS: Dinosaur[] = [
       'Gliding Lift-to-Drag Ratio: 18:1'
     ],
     callSignature: 'High frequency screeching whistle',
-    image: 'https://images.unsplash.com/photo-1550353127-b0da3aeaa0ca?auto=format&fit=crop&w=800&q=80'
+    image: 'https://res.cloudinary.com/dkev7ein3/image/upload/v1782018089/Pteranodon_m0xx9w.png'
   },
   {
     id: 'dilophosaurus',
@@ -193,7 +193,7 @@ export const DINOSAURS: Dinosaur[] = [
       'Sinuous Locomotive Flexibility: 140%'
     ],
     callSignature: 'Sibilant chattering cranial rattle and chirp',
-    image: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=80'
+    image: 'https://res.cloudinary.com/dkev7ein3/image/upload/v1782018086/Dilophosaurus_cex2mg.png'
   },
   {
     id: 'carnotaurus',
@@ -213,6 +213,6 @@ export const DINOSAURS: Dinosaur[] = [
       'Maximum Acceleration Rate: 4.8 m/sec²'
     ],
     callSignature: 'Infrasonic rumbly brow-horn rasp',
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80'
+    image: 'https://res.cloudinary.com/dkev7ein3/image/upload/v1782018314/Carnotaurus_vvc17p.png'
   }
 ];

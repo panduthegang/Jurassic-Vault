@@ -10,11 +10,14 @@ export default function SpeciesArchive() {
   useEffect(() => {
     if (selectedSpecies) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
     return () => {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, [selectedSpecies]);
 
@@ -52,7 +55,7 @@ export default function SpeciesArchive() {
           </div>
 
           {/* Navigation Arrows */}
-          <div className="flex items-center gap-3 self-end sm:self-auto">
+          <div className="hidden sm:flex items-center gap-3 self-end sm:self-auto">
             <button
               onClick={() => scroll('left')}
               className="w-11 h-11 rounded-full flex items-center justify-center liquid-glass text-white/80 hover:text-white border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all cursor-pointer shadow-md active:scale-95"
@@ -143,13 +146,15 @@ export default function SpeciesArchive() {
               className="relative w-full max-w-lg rounded-3xl liquid-glass overflow-hidden border border-white/10 p-6 sm:p-8 bg-zinc-950/95 z-[210] shadow-2xl my-auto"
             >
               {/* Absolute Close Top Right Corner */}
-              <button
-                onClick={() => setSelectedSpecies(null)}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full flex items-center justify-center liquid-glass text-white/70 hover:text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all font-mono text-[12px] z-50 cursor-pointer"
-                aria-label="Close modal"
-              >
-                ✕
-              </button>
+              <div className="absolute top-5 right-5 z-50">
+                <button
+                  onClick={() => setSelectedSpecies(null)}
+                  className="w-8 h-8 rounded-full flex items-center justify-center liquid-glass text-white/70 hover:text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all font-mono text-[12px] cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  ✕
+                </button>
+              </div>
 
               <div className="flex flex-col gap-5">
                 {/* Header Info */}
