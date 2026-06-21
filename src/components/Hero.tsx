@@ -63,21 +63,25 @@ and the giants that once ruled our planet.
           </motion.p>
         </div>
 
-        {/* Pure liquid glass styled action buttons */}
+        {/* Animated Liquid Glass Scroll Down Indicator */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center z-20"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="z-20 mt-4"
         >
-          <button className="w-full sm:w-auto px-9 py-4 rounded-full liquid-glass text-white hover:bg-white/5 font-mono font-bold text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 cursor-pointer">
-            <Compass className="w-4 h-4 text-white" />
-            Enter Experience
-          </button>
-
-          <button className="w-full sm:w-auto px-9 py-4 rounded-full liquid-glass text-white hover:bg-white/5 font-mono font-bold text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 cursor-pointer">
-            <Eye className="w-4 h-4 text-white" />
-            Vocalized Reconstruct
+          <button
+            onClick={() => {
+              const el = document.getElementById('exhibits');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="px-6 py-3 rounded-full liquid-glass text-white/80 hover:text-white hover:bg-white/5 font-mono text-[10px] uppercase tracking-[0.25em] transition-all duration-300 flex items-center gap-2.5 active:scale-95 cursor-pointer"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+            </span>
+            Explore Vault
           </button>
         </motion.div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, MapPin, Globe, Twitter, Instagram, Linkedin, Shield } from 'lucide-react';
+import { Clock, MapPin, Globe, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -88,9 +88,7 @@ export default function Footer() {
         {/* Brand alignment & copyright line */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full flex items-center justify-center bg-white/5 border border-white/10">
-              <Shield className="w-3 h-3 text-white/60" />
-            </div>
+            <img src="/logo.svg" className="w-8 h-8 invert opacity-60" alt="Kronos Logo" />
             <span className="font-sans font-light tracking-[0.2em] text-[#ffffff] text-xs">
               KRONOS SYSTEM
             </span>
