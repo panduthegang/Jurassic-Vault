@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Clock, Shield, Feather, Globe, Compass, Sparkles } from 'lucide-react';
-import { 
-  DISCOVERIES_COL1, 
-  DISCOVERIES_COL2, 
-  DISCOVERIES_COL3, 
-  DiscoveryData 
+import {
+  DISCOVERIES_COL1,
+  DISCOVERIES_COL2,
+  DISCOVERIES_COL3,
+  DiscoveryData
 } from '../data/discoveries';
 
 const ICON_MAP = {
@@ -20,18 +20,18 @@ const ICON_MAP = {
 export default function Discoveries() {
   const renderCard = (discovery: DiscoveryData) => {
     const IconComponent = ICON_MAP[discovery.iconName] || Compass;
-    
+
     return (
       <div
         key={discovery.id}
         className="w-full rounded-2xl liquid-glass border border-white/[0.08] p-5 sm:p-6 bg-white/[0.01] hover:border-white/20 transition-all duration-300 flex flex-col justify-between select-none relative group"
       >
         {/* Subtle decorative background glow */}
-        <div 
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" 
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.015) 0%, transparent 75%)' }}
         />
-        
+
         <div>
           {/* Card Top Metadata */}
           <div className="flex items-center justify-between mb-4 text-[9px] font-mono tracking-widest text-white/40 uppercase">
@@ -65,9 +65,6 @@ export default function Discoveries() {
       <div className="max-w-[1600px] mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-white/40 block mb-3">
-            CHRONICLES OF DEEP TIME
-          </span>
           <h2 className="font-display italic text-5xl sm:text-7xl text-white font-normal mb-4">
             Prehistoric Ledger
           </h2>

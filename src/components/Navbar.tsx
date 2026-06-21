@@ -77,7 +77,7 @@ export default function Navbar({ currentSection, onNavigate }: NavbarProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.35, ease: 'easeInOut' }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col justify-center items-center p-6 md:hidden"
+            className="fixed inset-0 z-40 bg-black/30 backdrop-blur-xl flex flex-col justify-center items-center p-6 md:hidden"
           >
             {/* Absolute Decorative Blurred Ambient Circle */}
             <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-64 h-64 bg-white/[0.03] rounded-full filter blur-[100px] pointer-events-none" />
@@ -116,9 +116,9 @@ export default function Navbar({ currentSection, onNavigate }: NavbarProps) {
             </nav>
 
             {/* Footer markers */}
-            <div className="absolute bottom-10 text-center text-white/30 font-mono text-[8px] uppercase tracking-[0.25em]">
+            {/* <div className="absolute bottom-10 text-center text-white/30 font-mono text-[8px] uppercase tracking-[0.25em]">
               AUTHENTIC METADATA CODES SECURED
-            </div>
+            </div> */}
           </motion.div>
         )}
       </AnimatePresence>

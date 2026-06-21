@@ -31,7 +31,7 @@ export default function Footer() {
 
         {/* Horizontal Navigation Metadata Rails in Liquid Glass container */}
         <div className="rounded-3xl liquid-glass p-8 sm:p-10 border border-white/[0.08] backdrop-blur-sm">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left mb-10 border-b border-white/5 pb-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 text-center md:text-left mb-10 border-b border-white/5 pb-10 max-w-4xl mx-auto">
 
             {/* Location details */}
             <div className="flex flex-col items-center md:items-start gap-3">
@@ -52,11 +52,11 @@ export default function Footer() {
             </div>
 
             {/* Visiting Hours */}
-            <div className="flex flex-col items-center md:items-start gap-3">
+            <div className="flex flex-col items-center md:items-center gap-3 text-center">
               <div className="w-8 h-8 rounded-full flex items-center justify-center bg-white/5 border border-white/10">
                 <Clock className="w-4 h-4 text-white/70" />
               </div>
-              <div>
+              <div className="flex flex-col items-center md:items-center">
                 <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/55 mb-1.5">
                   Vault Hours
                 </h4>
@@ -70,15 +70,15 @@ export default function Footer() {
             </div>
 
             {/* Network Hub / Social links */}
-            <div className="flex flex-col items-center md:items-start gap-3">
+            <div className="flex flex-col items-center md:items-end gap-3 text-center md:text-right">
               <div className="w-8 h-8 rounded-full flex items-center justify-center bg-white/5 border border-white/10">
                 <Globe className="w-4 h-4 text-white/70" />
               </div>
-              <div>
+              <div className="flex flex-col items-center md:items-end">
                 <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/55 mb-2.5">
                   Biological Network Hub
                 </h4>
-                <div className="flex justify-center md:justify-start gap-2">
+                <div className="flex justify-center md:justify-end gap-2">
                   <a
                     href="#"
                     className="w-8 h-8 rounded-full flex items-center justify-center liquid-glass hover:bg-white/5 text-white/75 hover:text-white border border-white/10 hover:border-white/20 transition-all cursor-pointer"
@@ -107,7 +107,7 @@ export default function Footer() {
           </div>
 
           {/* Brand alignment & copyright line */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
             <div className="flex items-center gap-2">
               <img src="/logo.svg" className="w-7 h-7 invert opacity-60" alt="Kronos Logo" />
               <span className="font-sans font-light tracking-[0.2em] text-[#ffffff] text-xs">
@@ -115,9 +115,21 @@ export default function Footer() {
               </span>
             </div>
 
-            <p className="font-mono text-[8px] uppercase tracking-widest text-white/40 text-center sm:text-right">
-              &copy; {currentYear} KRONOS. ALL REAL-TIME RECONSTRUCTION SECURITY SECURED.
-            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 font-mono text-[10px] uppercase tracking-widest text-white/45 text-center sm:text-right">
+              <span>&copy; {currentYear} KRONOS. ALL REAL-TIME RECONSTRUCTION SECURITY SECURED.</span>
+              <span className="hidden sm:inline text-white/20">|</span>
+              <span>
+                CRAFTED BY{" "}
+                <a 
+                  href="https://harshrathod-portfolio.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white hover:text-white/80 transition-all duration-300 underline underline-offset-4 decoration-white/20 hover:decoration-white font-medium"
+                >
+                  HARSH RATHOD
+                </a>
+              </span>
+            </div>
           </div>
         </div>
 
