@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -34,7 +29,7 @@ export default function App() {
       />
 
       {/* Main Container */}
-      <main>
+      <main className="relative z-10 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.9)]">
         {/* Minimal High-Impact Pure Glassmorphism Hero Section */}
         <Hero />
 
